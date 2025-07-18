@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Barbearia - Estados do Brasil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="barbeiros-style.css">
+    
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imagens/barbearia (1).png" alt="Logo Barber" />
+                <span>Barber</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Estados do Brasil</h1>
+        <ul id="estados-lista">
+            <li data-estado="AC">Acre</li>
+            <li data-estado="AL">Alagoas</li>
+            <li data-estado="AP">Amapá</li>
+            <li data-estado="AM">Amazonas</li>
+            <li data-estado="BA">Bahia</li>
+            <li data-estado="CE">Ceará</li>
+            <li data-estado="DF">Distrito Federal</li>
+            <li data-estado="ES">Espírito Santo</li>
+            <li data-estado="GO">Goiás</li>
+            <li data-estado="MA">Maranhão</li>
+            <li data-estado="MT">Mato Grosso</li>
+            <li data-estado="MS">Mato Grosso do Sul</li>
+            <li data-estado="MG">Minas Gerais</li>
+            <li data-estado="PA">Pará</li>
+            <li data-estado="PB">Paraíba</li>
+            <li data-estado="PR">Paraná</li>
+            <li data-estado="PE">Pernambuco</li>
+            <li data-estado="PI">Piauí</li>
+            <li data-estado="RJ">Rio de Janeiro</li>
+            <li data-estado="RN">Rio Grande do Norte</li>
+            <li data-estado="RS">Rio Grande do Sul</li>
+            <li data-estado="RO">Rondônia</li>
+            <li data-estado="RR">Roraima</li>
+            <li data-estado="SC">Santa Catarina</li>
+            <li data-estado="SP">São Paulo</li>
+            <li data-estado="SE">Sergipe</li>
+            <li data-estado="TO">Tocantins</li>
+        </ul>
+
+        <section id="barbeiros-container" style="display:none;">
+            <h2>Barbeiros em Paraíba</h2>
+            <div id="barbeiros-lista"></div>
+        </section>
+    </main>
+
+    <section class="botao-voltar">
+        <a href="index.html" class="texto-voltar">Voltar ao Inicio</a>
+    </section>
+
+    <script>
+        const barbeirosPorEstado = {
+            AC: [
+                {
+                    nome: "Rafael Costa",
+                    telefone: "(68) 99999-1111",
+                    endereco: "Rua das Palmeiras, 100, Rio Branco - AC",
+                    descricao: "Barbeiro especializado em cortes modernos."
+                }
+            ],
+            AL: [
+                {
+                    nome: "Lucas Ferreira",
+                    telefone: "(82) 98888-2222",
+                    endereco: "Av. Brasil, 200, Maceió - AL",
+                    descricao: "Atendimento personalizado e cortes clássicos."
+                }
+            ],
+            AP: [
+                {
+                    nome: "João Marcos",
+                    telefone: "(96) 97777-3333",
+                    endereco: "Rua do Comércio, 50, Macapá - AP",
+                    descricao: "Barbeiro com experiência em fade e barba."
+                }
+            ],
+            AM: [
+                {
+                    nome: "Felipe Andrade",
+                    telefone: "(92) 96666-4444",
+                    endereco: "Av. Amazonas, 400, Manaus - AM",
+                    descricao: "Especialista em cortes para cabelos cacheados."
+                }
+            ],
+            BA: [
+                {
+                    nome: "Pedro Silva",
+                    telefone: "(71) 95555-5555",
+                    endereco: "Rua da Bahia, 123, Salvador - BA",
+                    descricao: "Barbeiro focado em atendimento rápido e eficiente."
+                }
+            ],
+            CE: [
+                {
+                    nome: "Carlos Alberto",
+                    telefone: "(85) 94444-6666",
+                    endereco: "Av. Beira Mar, 789, Fortaleza - CE",
+                    descricao: "Atendimento com produtos premium."
+                }
+            ],
+            DF: [
+                {
+                    nome: "Ricardo Lima",
+                    telefone: "(61) 93333-7777",
+                    endereco: "Setor Comercial, Brasília - DF",
+                    descricao: "Cortes modernos e barbeiro profissional."
+                }
+            ],
+            ES: [
+                {
+                    nome: "Marcos Vinícius",
+                    telefone: "(27) 92222-8888",
+                    endereco: "Rua das Flores, 345, Vitória - ES",
+                    descricao: "Barbeiro tradicional com experiência."
+                }
+            ],
+            GO: [
+                {
+                    nome: "André Souza",
+                    telefone: "(62) 91111-9999",
+                    endereco: "Av. Goiás, 678, Goiânia - GO",
+                    descricao: "Cortes personalizados e atendimento amigável."
+                }
+            ],
+            MA: [
+                {
+                    nome: "Bruno Carvalho",
+                    telefone: "(98) 90000-1010",
+                    endereco: "Rua Maranhão, 234, São Luís - MA",
+                    descricao: "Especialista em cortes clássicos."
+                }
+            ],
+            MT: [
+                {
+                    nome: "Lucas Martins",
+                    telefone: "(65) 91234-5678",
+                    endereco: "Av. Mato Grosso, 123, Cuiabá - MT",
+                    descricao: "Barbeiro experiente em cortes curtos."
+                }
+            ],
+            MS: [
+                {
+                    nome: "Thiago Rocha",
+                    telefone: "(67) 92345-6789",
+                    endereco: "Rua das Palmeiras, 89, Campo Grande - MS",
+                    descricao: "Cortes modernos e barba feita com cuidado."
+                }
+            ],
+            MG: [
+                {
+                    nome: "Gustavo Almeida",
+                    telefone: "(31) 93456-7890",
+                    endereco: "Av. Minas, 456, Belo Horizonte - MG",
+                    descricao: "Atendimento de qualidade com cortes clássicos."
+                }
+            ],
+            PA: [
+                {
+                    nome: "Daniel Pereira",
+                    telefone: "(91) 94567-8901",
+                    endereco: "Rua Pará, 321, Belém - PA",
+                    descricao: "Barbeiro com foco em estilo e atendimento."
+                }
+            ],
+            PB: [
+                {
+                    nome: "Carlos Silva",
+                    telefone: "(83) 99999-1234",
+                    endereco: "Rua das Flores, 123, João Pessoa - PB",
+                    descricao: "Especialista em cortes clássicos e barba tradicional."
+                }
+            ],
+            PR: [
+                {
+                    nome: "Rafael Almeida",
+                    telefone: "(41) 95678-9012",
+                    endereco: "Av. Paraná, 789, Curitiba - PR",
+                    descricao: "Atendimento profissional com cortes modernos."
+                }
+            ],
+            PE: [
+                {
+                    nome: "Felipe Gomes",
+                    telefone: "(81) 96789-0123",
+                    endereco: "Rua Recife, 456, Recife - PE",
+                    descricao: "Barbeiro focado em cortes e barba estilizada."
+                }
+            ],
+            PI: [
+                {
+                    nome: "Eduardo Silva",
+                    telefone: "(86) 97890-1234",
+                    endereco: "Av. Piauí, 123, Teresina - PI",
+                    descricao: "Especialista em cortes personalizados."
+                }
+            ],
+            RJ: [
+                {
+                    nome: "Marcelo Santos",
+                    telefone: "(21) 98901-2345",
+                    endereco: "Rua Rio de Janeiro, 789, Rio de Janeiro - RJ",
+                    descricao: "Barbeiro experiente em cortes modernos."
+                }
+            ],
+            RN: [
+                {
+                    nome: "Anderson Oliveira",
+                    telefone: "(84) 99012-3456",
+                    endereco: "Av. Rio Grande, 234, Natal - RN",
+                    descricao: "Atendimento com cortes clássicos."
+                }
+            ],
+            RS: [
+                {
+                    nome: "Paulo Henrique",
+                    telefone: "(51) 90123-4567",
+                    endereco: "Rua Sul, 567, Porto Alegre - RS",
+                    descricao: "Barbeiro especialista em fade e barba."
+                }
+            ],
+            RO: [
+                {
+                    nome: "Vinícius Costa",
+                    telefone: "(69) 91234-5678",
+                    endereco: "Av. Rondônia, 890, Porto Velho - RO",
+                    descricao: "Cortes modernos e atendimento personalizado."
+                }
+            ],
+            RR: [
+                {
+                    nome: "Diego Rodrigues",
+                    telefone: "(95) 92345-6789",
+                    endereco: "Rua Roraima, 101, Boa Vista - RR",
+                    descricao: "Barbeiro com técnica e estilo."
+                }
+            ],
+            SC: [
+                {
+                    nome: "Felipe Ramos",
+                    telefone: "(48) 93456-7890",
+                    endereco: "Av. Santa Catarina, 345, Florianópolis - SC",
+                    descricao: "Cortes clássicos e modernos com qualidade."
+                }
+            ],
+            SP: [
+                {
+                    nome: "Lucas Fernandes",
+                    telefone: "(11) 94567-8901",
+                    endereco: "Rua São Paulo, 678, São Paulo - SP",
+                    descricao: "Barbeiro renomado com anos de experiência."
+                }
+            ],
+            SE: [
+                {
+                    nome: "José Carlos",
+                    telefone: "(79) 95678-9012",
+                    endereco: "Av. Sergipe, 123, Aracaju - SE",
+                    descricao: "Atendimento amigável e cortes personalizados."
+                }
+            ],
+            TO: [
+                {
+                    nome: "Mateus Souza",
+                    telefone: "(63) 96789-0123",
+                    endereco: "Rua Tocantins, 456, Palmas - TO",
+                    descricao: "Barbeiro especializado em cortes rápidos e precisos."
+                }
+            ],
+        };
+
+        const estadosLista = document.getElementById('estados-lista');
+        const barbeirosContainer = document.getElementById('barbeiros-container');
+        const barbeirosLista = document.getElementById('barbeiros-lista');
+
+        estadosLista.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                estadosLista.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+                event.target.classList.add('active');
+
+                const estado = event.target.getAttribute('data-estado');
+
+                if (barbeirosPorEstado[estado]) {
+                    barbeirosLista.innerHTML = '';
+                    barbeirosPorEstado[estado].forEach(barbeiro => {
+                        const card = document.createElement('div');
+                        card.className = 'barbeiro-card';
+                        card.innerHTML = `
+          <div class="barbeiro-nome">${barbeiro.nome}</div>
+          <div class="barbeiro-info"><strong>Telefone:</strong> ${barbeiro.telefone}</div>
+          <div class="barbeiro-info"><strong>Endereço:</strong> ${barbeiro.endereco}</div>
+          <div class="barbeiro-info">${barbeiro.descricao}</div>
+        `;
+                        barbeirosLista.appendChild(card);
+                    });
+                    barbeirosContainer.style.display = 'block';
+                } else {
+                    barbeirosContainer.style.display = 'none';
+                    barbeirosLista.innerHTML = '';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
