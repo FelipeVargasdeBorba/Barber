@@ -152,7 +152,7 @@ body {
     margin-top: 1.5rem;
 }
 
-.btn-procure button {
+.btn-procure a {
     background: var(--vermelho-escuro);
     color: white;
     border: none;
@@ -164,7 +164,7 @@ body {
     transition: background-color 0.5s, transform 0.5s;
 }
 
-.btn-procure button:hover {
+.btn-procure a:hover {
     background: var(--dourado);
     transform: scale(1.05);
 }
